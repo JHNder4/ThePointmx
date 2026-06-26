@@ -70,26 +70,30 @@ interface Props {
   cartItemCount: number;
   onNavigate: (screen: Screen) => void;
   onComplete: (action: "continue" | "explore") => void;
+  show?: boolean;
+  onHide?: () => void;
 }
 
-export function TepoOnboarding({ cartItemCount, onNavigate, onComplete }: Props) {
+export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = false, onHide }: Props) {
   const [phase, setPhase] = useState<"welcome" | "guide" | "finale" | "hidden">("hidden");
   const [stepIndex, setStepIndex] = useState(0);
   const [notifPing, setNotifPing] = useState(false);
   const [finaleMsg, setFinaleMsg] = useState(0);
 
+  // Controlled externally: show prop triggers the tutorial
   useEffect(() => {
-    const done = localStorage.getItem(STORAGE_KEY);
-    if (!done) {
-      const t = setTimeout(() => setPhase("welcome"), 1400);
-      return () => clearTimeout(t);
+    if (show) {
+      setStepIndex(0);
+      setNotifPing(false);
+      setFinaleMsg(0);
+      setPhase("welcome");
     }
-    return undefined;
-  }, []);
+  }, [show]);
 
   const dismiss = () => {
     localStorage.setItem(STORAGE_KEY, "1");
     setPhase("hidden");
+    onHide?.();
   };
 
   const nextStep = () => {
@@ -108,6 +112,7 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete }: Props)
   const handleFinale = (action: "continue" | "explore") => {
     localStorage.setItem(STORAGE_KEY, "1");
     setPhase("hidden");
+    onHide?.();
     onComplete(action);
   };
 

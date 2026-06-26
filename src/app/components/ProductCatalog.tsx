@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Plus, Minus, ShoppingCart, ChevronRight, Package2 } from "lucide-react";
+import { Plus, Minus, ShoppingCart, ChevronRight, Package2, ArrowLeft } from "lucide-react";
 
 export interface Product {
   id: string;
@@ -490,9 +490,10 @@ interface ProductCatalogProps {
   onUpdateCart: (productId: string, quantity: number) => void;
   onContinue: () => void;
   onOpenCategory: (categoryKey: string) => void;
+  onBack?: () => void;
 }
 
-export function ProductCatalog({ products, promoProducts = [], cart, totalCartPrice, onUpdateCart, onContinue, onOpenCategory }: ProductCatalogProps) {
+export function ProductCatalog({ products, promoProducts = [], cart, totalCartPrice, onUpdateCart, onContinue, onOpenCategory, onBack }: ProductCatalogProps) {
   const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
 
   return (
@@ -509,7 +510,17 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
         style={{ background: "var(--tp-grad-top)" }}
       >
         <div className="max-w-lg mx-auto flex items-center justify-between">
-          <div>
+          <div className="flex items-center gap-3">
+            {onBack && (
+              <button
+                onClick={onBack}
+                className="w-9 h-9 rounded-xl flex items-center justify-center transition-colors"
+                style={{ background: "var(--tp-card)", color: "var(--tp-fg2)" }}
+              >
+                <ArrowLeft className="w-4 h-4" />
+              </button>
+            )}
+            <div>
             <h2 className="text-2xl font-bold tracking-tight" style={{ color: "var(--tp-fg)" }}>
               Menú
             </h2>
@@ -517,6 +528,7 @@ export function ProductCatalog({ products, promoProducts = [], cart, totalCartPr
               {products.filter(p => p.type !== "category").length} productos · {products.filter(p => p.type === "category").length} categorías
               {promoProducts.length > 0 && ` · ${promoProducts.length} promos`}
             </p>
+            </div>
           </div>
           <div
             className="px-3 py-1.5 rounded-full text-xs font-semibold"

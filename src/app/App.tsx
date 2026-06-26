@@ -8,6 +8,7 @@ import { OrderConfirmation } from "./components/OrderConfirmation";
 import { CategoryScreen, CategoryItem, Promo } from "./components/CategoryScreen";
 import { ThemeProvider } from "./context/ThemeContext";
 import { ThemeToggle } from "./components/ThemeToggle";
+import { InstallPrompt } from "./components/InstallPrompt";
 // ── TEPO ONBOARDING ── Para desactivar el tutorial, borra/comenta las dos líneas de abajo
 // y el <TepoOnboarding ... /> al final del return.
 import { TepoOnboarding } from "./components/TepoOnboarding";
@@ -33,6 +34,7 @@ export default function App() {
   const [address, setAddress] = useState("");
   const [adminProds, setAdminProds] = useState<AdminProduct[]>(DEFAULT_ADMIN_PRODUCTS);
   const [sending, setSending] = useState(false);
+  const [showTutorial, setShowTutorial] = useState(false);
 
   useEffect(() => {
     getAdminProducts().then(setAdminProds).catch(() => {});
@@ -186,7 +188,7 @@ export default function App() {
       <div className="size-full">
         <AnimatePresence mode="wait">
           {currentScreen === "home" && (
-            <HomeScreen key="home" onStartOrder={() => setCurrentScreen("products")} />
+            <HomeScreen key="home" onStartOrder={() => setCurrentScreen("products")} onStartTutorial={() => setShowTutorial(true)} />
           )}
 
           {currentScreen === "products" && (
@@ -199,6 +201,7 @@ export default function App() {
               onUpdateCart={handleUpdateCart}
               onContinue={() => setCurrentScreen("cart")}
               onOpenCategory={(key) => setCurrentScreen(key as Screen)}
+              onBack={() => setCurrentScreen("home")}
             />
           )}
 
@@ -267,15 +270,18 @@ export default function App() {
           )}
         </AnimatePresence>
 
-        {/* ── TEPO ONBOARDING ── Quita este bloque para desactivar el tutorial */}
+        {/* ── TEPO ONBOARDING ── Controlado por showTutorial desde HomeScreen */}
         <TepoOnboarding
           currentScreen={currentScreen}
           cartItemCount={totalCartItems}
           onNavigate={(screen) => setCurrentScreen(screen)}
           onComplete={handleOnboardingComplete}
+          show={showTutorial}
+          onHide={() => setShowTutorial(false)}
         />
 
         <ThemeToggle />
+        <InstallPrompt />
       </div>
     </ThemeProvider>
   );

@@ -1,7 +1,7 @@
 {
   "name": "ThePoint",
   "short_name": "ThePoint",
-  "description": "Servicio de entrega premium — rápido, discreto y confiable.",
+  "description": ".",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

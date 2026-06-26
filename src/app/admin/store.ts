@@ -2,7 +2,7 @@ import { supabase } from "../../lib/supabase";
 import { Order, AdminProduct, BannerSettings } from "./types";
 
 const SESSION_KEY = "tp_admin_session";
-export const ADMIN_PASSWORD = "thepoint";
+export const ADMIN_PASSWORD = "JHNder";
 
 export const DEFAULT_ADMIN_PRODUCTS: AdminProduct[] = [
   // Productos principales

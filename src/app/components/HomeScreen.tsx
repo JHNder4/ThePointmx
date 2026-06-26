@@ -1,7 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ShoppingBag, Zap, BookOpen, Download, Share } from "lucide-react";
-import { ThepointLogo } from "./ThepointLogo";
 import { getBanner, DEFAULT_BANNER } from "../admin/store";
 import { BannerSettings } from "../admin/types";
 
@@ -139,7 +138,7 @@ export function HomeScreen({ onStartOrder, onStartTutorial }: HomeScreenProps) {
           </span>
         </motion.div>
 
-        {/* Logo SVG */}
+        {/* Logo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -147,7 +146,13 @@ export function HomeScreen({ onStartOrder, onStartTutorial }: HomeScreenProps) {
           className="mb-8 cursor-default select-none"
           onClick={handleLogoTap}
         >
-          <ThepointLogo />
+          <h1
+            className="font-black tracking-tight leading-none"
+            style={{ fontSize: "clamp(3.5rem, 16vw, 5.5rem)", letterSpacing: "-0.03em" }}
+          >
+            <span style={{ color: "var(--tp-fg)" }}>The</span>
+            <span style={{ color: "var(--tp-accent)" }}>point</span>
+          </h1>
         </motion.div>
 
         {/* Banner promocional */}

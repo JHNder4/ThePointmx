@@ -8,6 +8,9 @@ import { OrderConfirmation } from "./components/OrderConfirmation";
 import { CategoryScreen, CategoryItem, Promo } from "./components/CategoryScreen";
 import { ThemeProvider } from "./context/ThemeContext";
 import { ThemeToggle } from "./components/ThemeToggle";
+// ── TEPO ONBOARDING ── Para desactivar el tutorial, borra/comenta las dos líneas de abajo
+// y el <TepoOnboarding ... /> al final del return.
+import { TepoOnboarding } from "./components/TepoOnboarding";
 import { saveOrder, getAdminProducts, DEFAULT_ADMIN_PRODUCTS } from "./admin/store";
 import { AdminProduct } from "./admin/types";
 
@@ -163,6 +166,15 @@ export default function App() {
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
+  // ── TEPO ONBOARDING: acción al terminar el tutorial ──────────────────────────
+  const handleOnboardingComplete = (action: "continue" | "explore") => {
+    if (action === "continue" && totalCartItems > 0) {
+      setCurrentScreen("cart");
+    } else {
+      setCurrentScreen("products");
+    }
+  };
+
   const handleBackToHome = () => {
     setCurrentScreen("home");
     setCart({});
@@ -254,6 +266,14 @@ export default function App() {
             />
           )}
         </AnimatePresence>
+
+        {/* ── TEPO ONBOARDING ── Quita este bloque para desactivar el tutorial */}
+        <TepoOnboarding
+          currentScreen={currentScreen}
+          cartItemCount={totalCartItems}
+          onNavigate={(screen) => setCurrentScreen(screen)}
+          onComplete={handleOnboardingComplete}
+        />
 
         <ThemeToggle />
       </div>

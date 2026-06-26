@@ -1,0 +1,84 @@
+
+<style>
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 0 .5rem; }
+  @media (max-width: 500px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  .tile { background: var(--surface-1); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem 1rem 1rem; display: flex; flex-direction: column; align-items: center; gap: .75rem; cursor: pointer; transition: border-color .15s; }
+  .tile:hover { border-color: var(--border-strong); }
+  .label { font-size: 12px; color: var(--text-secondary); text-align: center; line-height: 1.4; }
+  .name { font-size: 13px; font-weight: 500; color: var(--text-primary); text-align: center; }
+</style>
+
+<div class="grid">
+
+  <!-- 1. Punto como elemento gráfico -->
+  <div class="tile" onclick="sendPrompt('Me gusta la idea 1: punto como elemento gráfico, quiero explorar esa dirección')">
+    <svg width="140" height="72" viewBox="0 0 140 72" role="img"><title>Logo idea 1: punto como elemento gráfico</title>
+      <circle cx="22" cy="36" r="10" fill="#2563EB"/>
+      <text x="38" y="42" font-family="system-ui,sans-serif" font-size="28" font-weight="900" letter-spacing="-1" fill="var(--text-secondary)" opacity=".45">The</text>
+      <text x="86" y="42" font-family="system-ui,sans-serif" font-size="28" font-weight="900" letter-spacing="-1" fill="var(--text-primary)">point</text>
+    </svg>
+    <div class="name">Punto separado</div>
+    <div class="label">El • vive antes del nombre. Simple, limpio, fácil de recordar.</div>
+  </div>
+
+  <!-- 2. Solo tipografía, bold moderno -->
+  <div class="tile" onclick="sendPrompt('Me gusta la idea 2: wordmark bold minimalista, quiero explorar esa dirección')">
+    <svg width="140" height="72" viewBox="0 0 140 72" role="img"><title>Logo idea 2: wordmark bold</title>
+      <text x="70" y="30" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="400" letter-spacing="5" fill="var(--text-secondary)" opacity=".6">THE</text>
+      <text x="70" y="60" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" font-weight="900" letter-spacing="-2" fill="var(--text-primary)">POINT</text>
+    </svg>
+    <div class="name">Wordmark stacked</div>
+    <div class="label">THE pequeño arriba, POINT grande abajo. Jerarquía clara.</div>
+  </div>
+
+  <!-- 3. Ícono geométrico: cuadrado + punto -->
+  <div class="tile" onclick="sendPrompt('Me gusta la idea 3: ícono geométrico cuadrado con punto, quiero explorar esa dirección')">
+    <svg width="140" height="72" viewBox="0 0 140 72" role="img"><title>Logo idea 3: ícono cuadrado con punto</title>
+      <rect x="10" y="16" width="40" height="40" rx="10" fill="none" stroke="#2563EB" stroke-width="3"/>
+      <circle cx="30" cy="36" r="7" fill="#2563EB"/>
+      <text x="58" y="32" font-family="system-ui,sans-serif" font-size="11" font-weight="400" fill="var(--text-secondary)" opacity=".5">The</text>
+      <text x="58" y="52" font-family="system-ui,sans-serif" font-size="20" font-weight="900" letter-spacing="-0.5" fill="var(--text-primary)">point</text>
+    </svg>
+    <div class="name">Ícono + wordmark</div>
+    <div class="label">Cuadrado con punto adentro. Funciona solo como ícono de app.</div>
+  </div>
+
+  <!-- 4. P con punto integrado -->
+  <div class="tile" onclick="sendPrompt('Me gusta la idea 4: la P con el punto integrado como monograma, quiero explorar esa dirección')">
+    <svg width="140" height="72" viewBox="0 0 140 72" role="img"><title>Logo idea 4: monograma P con punto</title>
+      <rect x="12" y="12" width="48" height="48" rx="12" fill="#2563EB"/>
+      <text x="36" y="50" text-anchor="middle" font-family="system-ui,sans-serif" font-size="34" font-weight="900" fill="white">P</text>
+      <circle cx="52" cy="18" r="7" fill="white"/>
+      <text x="70" y="32" font-family="system-ui,sans-serif" font-size="11" font-weight="400" fill="var(--text-secondary)" opacity=".5">The</text>
+      <text x="70" y="52" font-family="system-ui,sans-serif" font-size="20" font-weight="900" letter-spacing="-0.5" fill="var(--text-primary)">point</text>
+    </svg>
+    <div class="name">Monograma P•</div>
+    <div class="label">La P con punto flotante. Ícono autónomo para favicon y app.</div>
+  </div>
+
+  <!-- 5. Punto como punto final -->
+  <div class="tile" onclick="sendPrompt('Me gusta la idea 5: thepoint como una oración con punto final grande, quiero explorar esa dirección')">
+    <svg width="140" height="72" viewBox="0 0 140 72" role="img"><title>Logo idea 5: punto final como firma</title>
+      <text x="12" y="42" font-family="system-ui,sans-serif" font-size="22" font-weight="900" letter-spacing="-0.5" fill="var(--text-secondary)" opacity=".4">The</text>
+      <text x="52" y="42" font-family="system-ui,sans-serif" font-size="22" font-weight="900" letter-spacing="-0.5" fill="var(--text-primary)">point</text>
+      <circle cx="126" cy="39" r="6" fill="#2563EB"/>
+    </svg>
+    <div class="name">Punto final</div>
+    <div class="label">El punto azul al final como firma. "Thepoint." — como una declaración.</div>
+  </div>
+
+  <!-- 6. T mayúscula con punto encima -->
+  <div class="tile" onclick="sendPrompt('Me gusta la idea 6: T mayúscula minimalista con punto encima como símbolo único, quiero explorar esa dirección')">
+    <svg width="140" height="72" viewBox="0 0 140 72" role="img"><title>Logo idea 6: T con punto</title>
+      <rect x="10" y="12" width="48" height="48" rx="12" fill="none" stroke="var(--border-strong)" stroke-width="1.5"/>
+      <text x="34" y="52" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" font-weight="900" fill="var(--text-primary)">T</text>
+      <circle cx="34" cy="19" r="5" fill="#2563EB"/>
+      <text x="68" y="32" font-family="system-ui,sans-serif" font-size="11" font-weight="400" fill="var(--text-secondary)" opacity=".5">The</text>
+      <text x="68" y="52" font-family="system-ui,sans-serif" font-size="20" font-weight="900" letter-spacing="-0.5" fill="var(--text-primary)">point</text>
+    </svg>
+    <div class="name">T• símbolo</div>
+    <div class="label">La T con el punto como carácter único. Evolución del logo actual.</div>
+  </div>
+
+</div>
+<p style="font-size: 12px; color: var(--text-muted); margin: 0; padding-bottom: .25rem;">Toca cualquier opción para explorar esa dirección →</p>

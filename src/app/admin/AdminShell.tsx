@@ -14,7 +14,7 @@ import {
 import { Order, AdminProduct, BannerSettings } from "./types";
 import { supabase } from "../../lib/supabase";
 import { OrderNotifications, NotificationItem } from "./components/OrderNotification";
-import { playOrderNotificationSound } from "./utils/sound";
+import { playOrderNotificationSound, requestNotificationPermission, showPushNotification } from "./utils/sound";
 
 type Tab = "dashboard" | "orders" | "products" | "banner";
 
@@ -71,6 +71,8 @@ export default function AdminShell() {
     if (!loggedIn) return;
     refreshData();
     const interval = setInterval(refreshData, 5000);
+    // Solicitar permiso de notificaciones push al hacer login
+    requestNotificationPermission();
     return () => clearInterval(interval);
   }, [loggedIn, refreshData]);
 
@@ -100,6 +102,7 @@ export default function AdminShell() {
           setNotifications(prev => [notification, ...prev].slice(0, 5));
 
           playOrderNotificationSound();
+          showPushNotification(newOrder.id, newOrder.total, newOrder.items.length);
         }
       )
       .subscribe();

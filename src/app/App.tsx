@@ -1,6 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
 import { AnimatePresence } from "motion/react";
-import { Analytics } from "@vercel/analytics/react";
 import { HomeScreen } from "./components/HomeScreen";
 import { ProductCatalog, Product } from "./components/ProductCatalog";
 import { Cart, AllItems } from "./components/Cart";
@@ -10,6 +9,7 @@ import { CategoryScreen, CategoryItem, Promo } from "./components/CategoryScreen
 import { ThemeProvider } from "./context/ThemeContext";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { InstallPrompt } from "./components/InstallPrompt";
+import { SplashScreen } from "./components/SplashScreen";
 // ── TEPO ONBOARDING ── Para desactivar el tutorial, borra/comenta las dos líneas de abajo
 // y el <TepoOnboarding ... /> al final del return.
 import { TepoOnboarding } from "./components/TepoOnboarding";
@@ -36,6 +36,7 @@ export default function App() {
   const [adminProds, setAdminProds] = useState<AdminProduct[]>(DEFAULT_ADMIN_PRODUCTS);
   const [sending, setSending] = useState(false);
   const [showTutorial, setShowTutorial] = useState(false);
+  const [splashDone, setSplashDone] = useState(false);
 
   useEffect(() => {
     getAdminProducts().then(setAdminProds).catch(() => {});
@@ -185,6 +186,8 @@ export default function App() {
   };
 
   return (
+    <>
+      {!splashDone && <SplashScreen onDone={() => setSplashDone(true)} />}
     <ThemeProvider>
       <div className="size-full">
         <AnimatePresence mode="wait">
@@ -283,8 +286,8 @@ export default function App() {
 
         <ThemeToggle />
         <InstallPrompt />
-        <Analytics />
       </div>
     </ThemeProvider>
+    </>
   );
 }

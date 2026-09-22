@@ -20,12 +20,12 @@ function Toggle({ checked, onChange, accent = "blue" }: { checked: boolean; onCh
   const bg = checked
     ? accent === "yellow"
       ? "linear-gradient(135deg, #FACC15, #EAB308)"
-      : "linear-gradient(135deg, #2563EB, #1D4ED8)"
+      : "var(--tp-btn)"
     : "rgba(63,63,70,0.8)";
   const shadow = checked
     ? accent === "yellow"
       ? "0 0 12px rgba(250,204,21,0.4)"
-      : "0 0 12px rgba(37,99,235,0.4)"
+      : "0 0 12px rgba(0,113,227,0.4)"
     : "none";
   return (
     <button
@@ -121,7 +121,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
             {product.image ? (
               <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
             ) : product.isCategory ? (
-              <Tag className="w-5 h-5 text-blue-400" />
+              <Tag className="w-5 h-5 text-[var(--tp-accent-text)]" />
             ) : (
               <Package2 className="w-5 h-5 text-[#52525B]" />
             )}
@@ -134,8 +134,8 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                   value={editing.name}
                   onChange={e => setEditing(ed => ed ? { ...ed, name: e.target.value } : ed)}
                   placeholder="Nombre"
-                  className="w-full px-3 py-2 rounded-lg text-white text-sm outline-none"
-                  style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(37,99,235,0.4)" }}
+                  className="w-full px-3 py-2 rounded-xl text-white text-sm outline-none"
+                  style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(0,113,227,0.4)" }}
                 />
                 {!product.isCategory && (
                   <>
@@ -146,8 +146,8 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                         value={editing.price}
                         onChange={e => setEditing(ed => ed ? { ...ed, price: e.target.value } : ed)}
                         placeholder="Precio"
-                        className="w-full px-3 py-2 rounded-lg text-white text-sm outline-none"
-                        style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(37,99,235,0.4)" }}
+                        className="w-full px-3 py-2 rounded-xl text-white text-sm outline-none"
+                        style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(0,113,227,0.4)" }}
                       />
                     </div>
                     <div className="flex items-center gap-2">
@@ -157,7 +157,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                         value={editing.promoPrice}
                         onChange={e => setEditing(ed => ed ? { ...ed, promoPrice: e.target.value } : ed)}
                         placeholder="Precio promocional"
-                        className="w-full px-3 py-2 rounded-lg text-white text-sm outline-none"
+                        className="w-full px-3 py-2 rounded-xl text-white text-sm outline-none"
                         style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(250,204,21,0.3)" }}
                       />
                     </div>
@@ -169,8 +169,8 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                 <div className="flex items-center gap-2 flex-wrap">
                   {product.isCategory && (
                     <span
-                      className="text-xs font-semibold px-1.5 py-0.5 rounded text-blue-400"
-                      style={{ background: "rgba(37,99,235,0.1)" }}
+                      className="text-xs font-semibold px-1.5 py-0.5 rounded text-[var(--tp-accent-text)]"
+                      style={{ background: "rgba(0,113,227,0.1)" }}
                     >
                       <Tag className="w-2.5 h-2.5 inline mr-0.5" />Cat
                     </span>
@@ -195,7 +195,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                 </div>
                 {!product.isCategory && (
                   <div className="flex items-center gap-3 mt-0.5">
-                    <p className="text-blue-400 font-bold text-base">${product.price}</p>
+                    <p className="text-[var(--tp-accent-text)] font-bold text-base">${product.price}</p>
                     {product.isPromo && product.promoPrice > 0 && (
                       <p className="text-yellow-400 font-bold text-sm">
                         Promo: ${product.promoPrice}
@@ -217,7 +217,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                   whileTap={{ scale: 0.9 }}
                   onClick={saveEdit}
                   disabled={saving}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-green-400 disabled:opacity-60"
+                  className="w-8 h-8 rounded-xl flex items-center justify-center text-green-400 disabled:opacity-60"
                   style={{ background: "rgba(34,197,94,0.15)", border: "1px solid rgba(34,197,94,0.3)" }}
                 >
                   <Check className="w-4 h-4" />
@@ -225,7 +225,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                 <motion.button
                   whileTap={{ scale: 0.9 }}
                   onClick={cancelEdit}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-[#71717A]"
+                  className="w-8 h-8 rounded-xl flex items-center justify-center text-[#71717A]"
                   style={{ background: "rgba(39,39,42,0.8)", border: "1px solid rgba(63,63,70,0.5)" }}
                 >
                   <X className="w-4 h-4" />
@@ -236,7 +236,7 @@ export function AdminProducts({ products, onProductsChange }: Props) {
                 <motion.button
                   whileTap={{ scale: 0.9 }}
                   onClick={() => startEdit(product)}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center text-[#71717A] hover:text-white transition-colors"
+                  className="w-8 h-8 rounded-xl flex items-center justify-center text-[#71717A] hover:text-white transition-colors"
                   style={{ background: "rgba(39,39,42,0.8)" }}
                 >
                   <Edit3 className="w-3.5 h-3.5" />

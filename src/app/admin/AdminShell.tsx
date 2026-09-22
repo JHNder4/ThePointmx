@@ -198,7 +198,7 @@ export default function AdminShell() {
             <Menu className="w-4 h-4" />
           </button>
           <div className="flex items-center gap-1.5 flex-1">
-            <Zap className="w-3.5 h-3.5 text-blue-400" />
+            <Zap className="w-3.5 h-3.5 text-[var(--tp-accent-text)]" />
             <span className="text-white font-bold text-sm tracking-tight">Thepoint Admin</span>
           </div>
           {newCount > 0 && tab !== "orders" && (
@@ -262,10 +262,10 @@ export default function AdminShell() {
                 key={item.id}
                 onClick={() => handleTabChange(item.id)}
                 className="relative flex flex-col items-center gap-1 px-3 py-2.5 rounded-xl transition-all duration-200"
-                style={{ background: isActive ? "rgba(37,99,235,0.12)" : "transparent" }}
+                style={{ background: isActive ? "rgba(0,113,227,0.12)" : "transparent" }}
               >
                 <div className="relative">
-                  <Icon className={`w-5 h-5 transition-colors ${isActive ? "text-blue-400" : "text-[#52525B]"}`} />
+                  <Icon className={`w-5 h-5 transition-colors ${isActive ? "text-[var(--tp-accent-text)]" : "text-[#52525B]"}`} />
                   {hasBadge && (
                     <span
                       className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 rounded-full text-white text-[9px] font-bold flex items-center justify-center"
@@ -275,7 +275,7 @@ export default function AdminShell() {
                     </span>
                   )}
                 </div>
-                <span className={`text-[10px] font-semibold transition-colors ${isActive ? "text-blue-400" : "text-[#52525B]"}`}>
+                <span className={`text-[10px] font-semibold transition-colors ${isActive ? "text-[var(--tp-accent-text)]" : "text-[#52525B]"}`}>
                   {item.label}
                 </span>
               </button>
@@ -302,13 +302,13 @@ function SidebarContent({ tab, newCount, onTabChange, onLogout, showClose, onClo
       <div className="flex items-center justify-between mb-8">
         <div>
           <div className="flex items-center gap-1.5 mb-0.5">
-            <Zap className="w-3.5 h-3.5 text-blue-400" />
-            <span className="text-blue-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
+            <Zap className="w-3.5 h-3.5 text-[var(--tp-accent-text)]" />
+            <span className="text-[var(--tp-accent-text)] text-xs font-semibold tracking-widest uppercase">Thepoint</span>
           </div>
           <h2 className="text-white font-bold text-base tracking-tight">Panel Admin</h2>
         </div>
         {showClose && (
-          <button onClick={onClose} className="w-7 h-7 rounded-lg flex items-center justify-center text-[#71717A]" style={{ background: "rgba(39,39,42,0.8)" }}>
+          <button onClick={onClose} className="w-7 h-7 rounded-xl flex items-center justify-center text-[#71717A]" style={{ background: "rgba(39,39,42,0.8)" }}>
             <X className="w-4 h-4" />
           </button>
         )}
@@ -326,11 +326,11 @@ function SidebarContent({ tab, newCount, onTabChange, onLogout, showClose, onClo
               onClick={() => onTabChange(item.id)}
               className="relative flex items-center gap-3 px-3 py-3 rounded-xl text-left transition-all duration-200 w-full"
               style={{
-                background: isActive ? "rgba(37,99,235,0.15)" : "transparent",
-                border: isActive ? "1px solid rgba(37,99,235,0.25)" : "1px solid transparent",
+                background: isActive ? "rgba(0,113,227,0.15)" : "transparent",
+                border: isActive ? "1px solid rgba(0,113,227,0.25)" : "1px solid transparent",
               }}
             >
-              <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-blue-400" : "text-[#52525B]"}`} />
+              <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? "text-[var(--tp-accent-text)]" : "text-[#52525B]"}`} />
               <span className={`text-sm font-medium ${isActive ? "text-white" : "text-[#71717A]"}`}>{item.label}</span>
               {hasBadge && (
                 <span

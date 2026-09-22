@@ -9,13 +9,13 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; 
   nuevo:       { label: "Nuevo",      color: "text-purple-400", bg: "rgba(168,85,247,0.1)", border: "rgba(168,85,247,0.3)", icon: Sparkles },
   confirmado:  { label: "Confirmado", color: "text-amber-400",  bg: "rgba(251,191,36,0.1)", border: "rgba(251,191,36,0.3)", icon: ThumbsUp },
   preparando:  { label: "Preparando", color: "text-orange-400", bg: "rgba(249,115,22,0.1)", border: "rgba(249,115,22,0.3)", icon: Package },
-  "en-camino": { label: "En camino",  color: "text-blue-400",   bg: "rgba(37,99,235,0.1)",  border: "rgba(37,99,235,0.3)",  icon: Truck },
+  "en-camino": { label: "En camino",  color: "text-[var(--tp-accent-text)]",   bg: "rgba(0,113,227,0.1)",  border: "rgba(0,113,227,0.3)",  icon: Truck },
   entregado:   { label: "Entregado",  color: "text-green-400",  bg: "rgba(34,197,94,0.1)",  border: "rgba(34,197,94,0.3)",  icon: CheckCircle2 },
   cancelado:   { label: "Cancelado",  color: "text-red-400",    bg: "rgba(239,68,68,0.1)",  border: "rgba(239,68,68,0.3)",  icon: XCircle },
   // Estados legados (retrocompat con pedidos existentes)
   pending:      { label: "Recibido",  color: "text-amber-400",  bg: "rgba(251,191,36,0.1)", border: "rgba(251,191,36,0.3)", icon: Clock },
   preparing:    { label: "Preparando",color: "text-orange-400", bg: "rgba(249,115,22,0.1)", border: "rgba(249,115,22,0.3)", icon: Package },
-  "on-the-way": { label: "En camino", color: "text-blue-400",   bg: "rgba(37,99,235,0.1)",  border: "rgba(37,99,235,0.3)",  icon: Truck },
+  "on-the-way": { label: "En camino", color: "text-[var(--tp-accent-text)]",   bg: "rgba(0,113,227,0.1)",  border: "rgba(0,113,227,0.3)",  icon: Truck },
   delivered:    { label: "Entregado", color: "text-green-400",  bg: "rgba(34,197,94,0.1)",  border: "rgba(34,197,94,0.3)",  icon: CheckCircle2 },
   cancelled:    { label: "Cancelado", color: "text-red-400",    bg: "rgba(239,68,68,0.1)",  border: "rgba(239,68,68,0.3)",  icon: XCircle },
 };
@@ -137,7 +137,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
             placeholder="Buscar pedido, dirección, producto..."
             className="w-full pl-10 pr-4 py-3 rounded-xl text-white placeholder-[#52525B] text-sm outline-none transition-all"
             style={{ background: "rgba(24,24,27,0.9)", border: "1px solid rgba(63,63,70,0.5)" }}
-            onFocus={e => { e.target.style.border = "1px solid rgba(37,99,235,0.4)"; }}
+            onFocus={e => { e.target.style.border = "1px solid rgba(0,113,227,0.4)"; }}
             onBlur={e => { e.target.style.border = "1px solid rgba(63,63,70,0.5)"; }}
           />
         </div>
@@ -149,8 +149,8 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
               onClick={() => setFilterStatus(status as OrderStatus | "all")}
               className="flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200"
               style={{
-                background: filterStatus === status ? "rgba(37,99,235,0.2)" : "rgba(39,39,42,0.8)",
-                border: filterStatus === status ? "1px solid rgba(37,99,235,0.4)" : "1px solid rgba(63,63,70,0.5)",
+                background: filterStatus === status ? "rgba(0,113,227,0.2)" : "rgba(39,39,42,0.8)",
+                border: filterStatus === status ? "1px solid rgba(0,113,227,0.4)" : "1px solid rgba(63,63,70,0.5)",
                 color: filterStatus === status ? "#93C5FD" : "#71717A",
               }}
             >
@@ -238,7 +238,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                               ))}
                               <div className="flex justify-between text-sm pt-1.5 border-t border-[#27272A] mt-1.5">
                                 <span className="text-white font-semibold">Total</span>
-                                <span className="text-blue-400 font-bold">${order.total}</span>
+                                <span className="text-[var(--tp-accent-text)] font-bold">${order.total}</span>
                               </div>
                             </div>
                           </div>
@@ -251,7 +251,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                                 href={mapsUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+                                className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold text-[var(--tp-accent-text)] hover:text-[var(--tp-accent-text)] transition-colors"
                               >
                                 <MapPin className="w-3 h-3" />
                                 Abrir en Google Maps
@@ -271,7 +271,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                                 placeholder="Ej: 20-30 min, 45 min..."
                                 className="flex-1 px-3 py-2.5 rounded-xl text-white text-sm outline-none placeholder-[#52525B]"
                                 style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(63,63,70,0.5)" }}
-                                onFocus={e => { e.target.style.border = "1px solid rgba(37,99,235,0.4)"; }}
+                                onFocus={e => { e.target.style.border = "1px solid rgba(0,113,227,0.4)"; }}
                                 onBlur={e => { e.target.style.border = "1px solid rgba(63,63,70,0.5)"; }}
                               />
                               <motion.button
@@ -279,7 +279,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                                 onClick={() => handleSaveEta(order.id)}
                                 disabled={saving[order.id + "eta"]}
                                 className="px-4 py-2.5 rounded-xl text-white text-xs font-semibold flex-shrink-0 transition-all disabled:opacity-60"
-                                style={{ background: "linear-gradient(135deg, #2563EB, #1D4ED8)" }}
+                                style={{ background: "var(--tp-btn)" }}
                               >
                                 {saving[order.id + "eta"] ? "..." : "Guardar"}
                               </motion.button>
@@ -319,7 +319,7 @@ export function AdminOrders({ orders, onOrdersChange }: Props) {
                               <span className="text-[#71717A] text-xs font-mono flex-1 truncate">{trackingUrl(order.id)}</span>
                               <button
                                 onClick={() => navigator.clipboard?.writeText(trackingUrl(order.id))}
-                                className="text-blue-400 text-xs font-semibold hover:text-blue-300 transition-colors flex-shrink-0"
+                                className="text-[var(--tp-accent-text)] text-xs font-semibold hover:text-[var(--tp-accent-text)] transition-colors flex-shrink-0"
                               >
                                 Copiar
                               </button>

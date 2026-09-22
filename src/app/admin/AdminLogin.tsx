@@ -33,7 +33,7 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
           animate={{ opacity: [0.12, 0.22, 0.12] }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(37,99,235,0.4) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, rgba(0,113,227,0.4) 0%, transparent 70%)" }}
         />
       </div>
 
@@ -50,17 +50,17 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
             transition={{ delay: 0.15, type: "spring", stiffness: 200 }}
             className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"
             style={{
-              background: "linear-gradient(135deg, rgba(37,99,235,0.2), rgba(37,99,235,0.05))",
-              border: "1px solid rgba(37,99,235,0.3)",
-              boxShadow: "0 0 30px rgba(37,99,235,0.2)",
+              background: "linear-gradient(135deg, rgba(0,113,227,0.2), rgba(0,113,227,0.05))",
+              border: "1px solid rgba(0,113,227,0.3)",
+              boxShadow: "0 0 30px rgba(0,113,227,0.2)",
             }}
           >
-            <Lock className="w-7 h-7 text-blue-400" />
+            <Lock className="w-7 h-7 text-[var(--tp-accent-text)]" />
           </motion.div>
           <h1 className="text-2xl font-bold text-white tracking-tight">Panel Admin</h1>
           <div className="flex items-center justify-center gap-1.5 mt-2">
-            <Zap className="w-3 h-3 text-blue-400" />
-            <span className="text-blue-400 text-xs font-semibold tracking-widest uppercase">Thepoint</span>
+            <Zap className="w-3 h-3 text-[var(--tp-accent-text)]" />
+            <span className="text-[var(--tp-accent-text)] text-xs font-semibold tracking-widest uppercase">Thepoint</span>
           </div>
         </div>
 
@@ -88,8 +88,8 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
                 }}
                 onFocus={e => {
                   if (!error) {
-                    e.target.style.border = "1px solid rgba(37,99,235,0.5)";
-                    e.target.style.boxShadow = "0 0 0 3px rgba(37,99,235,0.1)";
+                    e.target.style.border = "1px solid rgba(0,113,227,0.5)";
+                    e.target.style.boxShadow = "0 0 0 3px rgba(0,113,227,0.1)";
                   }
                 }}
                 onBlur={e => {
@@ -128,8 +128,8 @@ export function AdminLogin({ onLogin }: AdminLoginProps) {
               disabled={!password.trim() || loading}
               className="py-3.5 rounded-xl text-white font-semibold text-sm transition-all duration-300 disabled:opacity-50"
               style={{
-                background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-                boxShadow: "0 0 20px rgba(37,99,235,0.3)",
+                background: "var(--tp-btn)",
+                boxShadow: "0 0 20px rgba(0,113,227,0.3)",
               }}
             >
               {loading ? "Verificando..." : "Entrar al panel"}

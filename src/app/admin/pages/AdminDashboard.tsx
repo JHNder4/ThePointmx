@@ -12,7 +12,7 @@ const STATUS_LABEL: Record<string, string> = {
 
 const STATUS_COLOR: Record<string, string> = {
   pending: "text-amber-400",
-  "on-the-way": "text-blue-400",
+  "on-the-way": "text-[var(--tp-accent-text)]",
   delivered: "text-green-400",
   cancelled: "text-red-400",
 };
@@ -43,10 +43,10 @@ export function AdminDashboard({ orders, onNavigateOrders }: Props) {
       label: "Pedidos hoy",
       value: stats.todayOrders,
       icon: ShoppingBag,
-      color: "rgba(37,99,235,0.15)",
-      border: "rgba(37,99,235,0.3)",
-      iconColor: "text-blue-400",
-      glow: "rgba(37,99,235,0.1)",
+      color: "rgba(0,113,227,0.15)",
+      border: "rgba(0,113,227,0.3)",
+      iconColor: "text-[var(--tp-accent-text)]",
+      glow: "rgba(0,113,227,0.1)",
     },
     {
       label: "Ventas hoy",
@@ -118,12 +118,12 @@ export function AdminDashboard({ orders, onNavigateOrders }: Props) {
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-[#27272A]">
           <div className="flex items-center gap-2">
-            <TrendingUp className="w-4 h-4 text-blue-400" />
+            <TrendingUp className="w-4 h-4 text-[var(--tp-accent-text)]" />
             <h3 className="text-white font-semibold text-sm">Pedidos recientes</h3>
           </div>
           <button
             onClick={onNavigateOrders}
-            className="text-blue-400 text-xs font-medium flex items-center gap-1 hover:text-blue-300 transition-colors"
+            className="text-[var(--tp-accent-text)] text-xs font-medium flex items-center gap-1 hover:text-[var(--tp-accent-text)] transition-colors"
           >
             Ver todos <ChevronRight className="w-3 h-3" />
           </button>

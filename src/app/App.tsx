@@ -14,7 +14,6 @@ import { InstallPrompt } from "./components/InstallPrompt";
 import { TepoOnboarding } from "./components/TepoOnboarding";
 import { saveOrder, getAdminProducts, DEFAULT_ADMIN_PRODUCTS } from "./admin/store";
 import { AdminProduct } from "./admin/types";
-import AdminShell from "./admin/AdminShell";
 
 type Screen = "home" | "products" | "cart" | "location" | "confirmation" | "prerolls" | "comestibles";
 
@@ -183,12 +182,6 @@ export default function App() {
     setCart({});
     setAddress("");
   };
-
-  // El panel administrativo vive en la misma SPA, pero debe tener una entrada
-  // independiente para no renderizar la tienda pública en /admin.
-  if (window.location.pathname === "/admin" || window.location.pathname.startsWith("/admin/")) {
-    return <AdminShell />;
-  }
 
   return (
     <ThemeProvider>

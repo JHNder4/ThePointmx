@@ -16,8 +16,8 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: (v: boolean
       onClick={() => onChange(!checked)}
       className="relative w-11 h-6 rounded-full transition-all duration-300 flex-shrink-0"
       style={{
-        background: checked ? "linear-gradient(135deg, #2563EB, #1D4ED8)" : "rgba(63,63,70,0.8)",
-        boxShadow: checked ? "0 0 12px rgba(37,99,235,0.4)" : "none",
+        background: checked ? "var(--tp-btn)" : "rgba(63,63,70,0.8)",
+        boxShadow: checked ? "0 0 12px rgba(0,113,227,0.4)" : "none",
       }}
     >
       <motion.div
@@ -49,7 +49,7 @@ function Field({ label, value, onChange, placeholder, type = "text", hint }: {
         placeholder={placeholder}
         className="w-full px-3 py-2.5 rounded-xl text-white text-sm outline-none placeholder-[#52525B] transition-all"
         style={{ background: "rgba(9,9,11,0.9)", border: "1px solid rgba(63,63,70,0.5)" }}
-        onFocus={e => { e.target.style.border = "1px solid rgba(37,99,235,0.4)"; }}
+        onFocus={e => { e.target.style.border = "1px solid rgba(0,113,227,0.4)"; }}
         onBlur={e => { e.target.style.border = "1px solid rgba(63,63,70,0.5)"; }}
       />
       {hint && <p className="text-[#52525B] text-xs mt-1">{hint}</p>}
@@ -100,14 +100,14 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
           transition={{ delay: 0.06 }}
           className="rounded-2xl p-5"
           style={{
-            background: draft.isActive ? "rgba(37,99,235,0.08)" : "rgba(24,24,27,0.85)",
-            border: draft.isActive ? "1px solid rgba(37,99,235,0.3)" : "1px solid rgba(63,63,70,0.5)",
+            background: draft.isActive ? "rgba(0,113,227,0.08)" : "rgba(24,24,27,0.85)",
+            border: draft.isActive ? "1px solid rgba(0,113,227,0.3)" : "1px solid rgba(63,63,70,0.5)",
           }}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               {draft.isActive
-                ? <Eye className="w-5 h-5 text-blue-400" />
+                ? <Eye className="w-5 h-5 text-[var(--tp-accent-text)]" />
                 : <EyeOff className="w-5 h-5 text-[#52525B]" />
               }
               <div>
@@ -130,7 +130,7 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
           style={{ background: "rgba(24,24,27,0.85)", border: "1px solid rgba(63,63,70,0.5)" }}
         >
           <div className="flex items-center gap-2 mb-1">
-            <Zap className="w-4 h-4 text-blue-400" />
+            <Zap className="w-4 h-4 text-[var(--tp-accent-text)]" />
             <p className="text-white font-semibold text-sm">Texto del badge</p>
           </div>
           <Field
@@ -195,15 +195,15 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             className="rounded-2xl overflow-hidden"
-            style={{ border: "1px solid rgba(37,99,235,0.3)" }}
+            style={{ border: "1px solid rgba(0,113,227,0.3)" }}
           >
-            <div className="px-3 py-2 flex items-center gap-2" style={{ background: "rgba(37,99,235,0.15)", borderBottom: "1px solid rgba(37,99,235,0.2)" }}>
-              <Eye className="w-3 h-3 text-blue-400" />
-              <span className="text-blue-400 text-xs font-semibold uppercase tracking-wider">Vista previa</span>
+            <div className="px-3 py-2 flex items-center gap-2" style={{ background: "rgba(0,113,227,0.15)", borderBottom: "1px solid rgba(0,113,227,0.2)" }}>
+              <Eye className="w-3 h-3 text-[var(--tp-accent-text)]" />
+              <span className="text-[var(--tp-accent-text)] text-xs font-semibold uppercase tracking-wider">Vista previa</span>
             </div>
             <div
               className="p-5 relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, rgba(37,99,235,0.12) 0%, rgba(9,9,11,0.98) 100%)" }}
+              style={{ background: "linear-gradient(135deg, rgba(0,113,227,0.12) 0%, rgba(9,9,11,0.98) 100%)" }}
             >
               {draft.imageUrl && (
                 <div className="absolute inset-0 opacity-20">
@@ -234,10 +234,10 @@ export function AdminBanner({ banner, onBannerChange }: Props) {
           style={{
             background: saved
               ? "linear-gradient(135deg, #16A34A, #15803D)"
-              : "linear-gradient(135deg, #2563EB, #1D4ED8)",
+              : "var(--tp-btn)",
             boxShadow: saved
               ? "0 0 20px rgba(22,163,74,0.3)"
-              : "0 0 20px rgba(37,99,235,0.3)",
+              : "0 0 20px rgba(0,113,227,0.3)",
           }}
         >
           <Check className={`w-4 h-4 transition-transform ${saved ? "scale-110" : "scale-100"}`} />

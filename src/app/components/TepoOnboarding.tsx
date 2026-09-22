@@ -123,56 +123,56 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
   // light: fondo blanco/gris claro, azul más suave, textos oscuros
   const dark = {
     modalBg: "linear-gradient(160deg, #0d1020 0%, #09090B 100%)",
-    modalBorder: "rgba(37,99,235,0.4)",
-    modalShadow: "0 0 80px rgba(37,99,235,0.22), 0 24px 60px rgba(0,0,0,0.7)",
+    modalBorder: "rgba(0,113,227,0.4)",
+    modalShadow: "0 0 80px rgba(0,113,227,0.22), 0 24px 60px rgba(0,0,0,0.7)",
     overlay: "rgba(0,0,0,0.78)",
-    badgeBg: "rgba(37,99,235,0.12)",
-    badgeBorder: "rgba(37,99,235,0.28)",
-    badgeText: "#60A5FA",    // blue-400
+    badgeBg: "rgba(0,113,227,0.12)",
+    badgeBorder: "rgba(0,113,227,0.28)",
+    badgeText: "#7DC4FF",    // blue-400
     title: "#FFFFFF",
     subtitle: "#A1A1AA",
-    btnPrimary: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)",
-    btnPrimaryShadow: "0 0 28px rgba(37,99,235,0.45)",
+    btnPrimary: "linear-gradient(135deg, #0071E3 0%, #005BB5 100%)",
+    btnPrimaryShadow: "0 0 28px rgba(0,113,227,0.45)",
     btnSecondaryBg: "rgba(39,39,42,0.5)",
     btnSecondaryText: "#71717A",
     closeBg: "rgba(39,39,42,0.7)",
     closeText: "#52525B",
     closeTextHover: "#A1A1AA",
     bubbleBg: "rgba(9,10,18,0.97)",
-    bubbleBorder: "rgba(37,99,235,0.45)",
-    bubbleShadow: "0 0 30px rgba(37,99,235,0.18), 0 10px 36px rgba(0,0,0,0.65)",
-    stepActive: "#2563EB",
+    bubbleBorder: "rgba(0,113,227,0.45)",
+    bubbleShadow: "0 0 30px rgba(0,113,227,0.18), 0 10px 36px rgba(0,0,0,0.65)",
+    stepActive: "#0071E3",
     stepInactive: "rgba(63,63,70,0.9)",
     msgTitle: "#FFFFFF",
     msgSubtitle: "#A1A1AA",
-    glow: "rgba(37,99,235,0.55)",
+    glow: "rgba(0,113,227,0.55)",
   };
 
   const light = {
     modalBg: "linear-gradient(160deg, #FFFFFF 0%, #F4F4F5 100%)",
-    modalBorder: "rgba(37,99,235,0.3)",
-    modalShadow: "0 0 50px rgba(37,99,235,0.12), 0 24px 60px rgba(0,0,0,0.18)",
+    modalBorder: "rgba(0,113,227,0.3)",
+    modalShadow: "0 0 50px rgba(0,113,227,0.12), 0 24px 60px rgba(0,0,0,0.18)",
     overlay: "rgba(0,0,0,0.55)",
-    badgeBg: "rgba(37,99,235,0.08)",
-    badgeBorder: "rgba(37,99,235,0.22)",
-    badgeText: "#2563EB",
+    badgeBg: "rgba(0,113,227,0.08)",
+    badgeBorder: "rgba(0,113,227,0.22)",
+    badgeText: "#0071E3",
     title: "#09090B",
     subtitle: "#52525B",
-    btnPrimary: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)",
-    btnPrimaryShadow: "0 0 20px rgba(37,99,235,0.3)",
+    btnPrimary: "linear-gradient(135deg, #0071E3 0%, #005BB5 100%)",
+    btnPrimaryShadow: "0 0 20px rgba(0,113,227,0.3)",
     btnSecondaryBg: "rgba(228,228,231,0.7)",
     btnSecondaryText: "#71717A",
     closeBg: "rgba(228,228,231,0.9)",
     closeText: "#A1A1AA",
     closeTextHover: "#52525B",
     bubbleBg: "rgba(255,255,255,0.98)",
-    bubbleBorder: "rgba(37,99,235,0.3)",
-    bubbleShadow: "0 0 20px rgba(37,99,235,0.1), 0 10px 30px rgba(0,0,0,0.12)",
-    stepActive: "#2563EB",
+    bubbleBorder: "rgba(0,113,227,0.3)",
+    bubbleShadow: "0 0 20px rgba(0,113,227,0.1), 0 10px 30px rgba(0,0,0,0.12)",
+    stepActive: "#0071E3",
     stepInactive: "rgba(161,161,170,0.6)",
     msgTitle: "#09090B",
     msgSubtitle: "#52525B",
-    glow: "rgba(37,99,235,0.3)",
+    glow: "rgba(0,113,227,0.3)",
   };
 
   return (
@@ -187,7 +187,7 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
         @keyframes tepo-success  { 0%{transform:scale(1) rotate(0)} 20%{transform:scale(1.1) rotate(-4deg)} 45%{transform:scale(1.14) rotate(4deg)} 70%{transform:scale(1.08) rotate(-1deg)} 100%{transform:scale(1.04) rotate(0)} }
         @keyframes tepo-surprised{ 0%{transform:scale(1) translateY(0)} 20%{transform:scale(1.13) translateY(-10px)} 50%{transform:scale(1.09) translateY(-7px)} 100%{transform:scale(1.06) translateY(-5px)} }
         @keyframes tepo-notif    { 0%,100%{transform:rotate(0)} 20%{transform:rotate(-22deg)} 40%{transform:rotate(22deg)} 60%{transform:rotate(-14deg)} 80%{transform:rotate(8deg)} }
-        @keyframes spotlight-ring{ 0%,100%{box-shadow:0 0 0 3px rgba(37,99,235,0.8), 0 0 20px rgba(37,99,235,0.4)} 50%{box-shadow:0 0 0 6px rgba(37,99,235,0.4), 0 0 32px rgba(37,99,235,0.2)} }
+        @keyframes spotlight-ring{ 0%,100%{box-shadow:0 0 0 3px rgba(0,113,227,0.8), 0 0 20px rgba(0,113,227,0.4)} 50%{box-shadow:0 0 0 6px rgba(0,113,227,0.4), 0 0 32px rgba(0,113,227,0.2)} }
         .tepo-idle      { animation: tepo-breathe 3s ease-in-out infinite; }
         .tepo-wave      { animation: tepo-wave 1.4s ease-in-out infinite; }
         .tepo-point     { animation: tepo-point 1.8s ease-in-out infinite; }
@@ -227,8 +227,8 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                 className="absolute inset-0 rounded-3xl"
                 style={{
                   background: "var(--tp-modal-bg, linear-gradient(160deg, #0d1020 0%, #09090B 100%))",
-                  border: "1px solid var(--tp-modal-border, rgba(37,99,235,0.4))",
-                  boxShadow: "var(--tp-modal-shadow, 0 0 80px rgba(37,99,235,0.22), 0 24px 60px rgba(0,0,0,0.7))",
+                  border: "1px solid var(--tp-modal-border, rgba(0,113,227,0.4))",
+                  boxShadow: "var(--tp-modal-shadow, 0 0 80px rgba(0,113,227,0.22), 0 24px 60px rgba(0,0,0,0.7))",
                 }}
               />
 
@@ -328,8 +328,8 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                   onClick={() => setPhase("guide")}
                   className="w-full py-4 rounded-2xl text-white font-bold text-base flex items-center justify-center gap-2 transition-all"
                   style={{
-                    background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)",
-                    boxShadow: "0 0 28px rgba(37,99,235,0.45)",
+                    background: "linear-gradient(135deg, #0071E3 0%, #005BB5 100%)",
+                    boxShadow: "0 0 28px rgba(0,113,227,0.45)",
                   }}
                 >
                   Sí, llévame
@@ -375,7 +375,7 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                   height: step.spotlightPos.h,
                   transform: "translate(-50%, -50%)",
                   borderRadius: 18,
-                  background: "rgba(37,99,235,0.06)",
+                  background: "rgba(0,113,227,0.06)",
                 }}
               />
             )}
@@ -392,7 +392,7 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                     style={{
                       width: i === stepIndex ? 18 : 6,
                       height: 6,
-                      background: i === stepIndex ? "#2563EB" : "var(--tp-step-inactive)",
+                      background: i === stepIndex ? "#0071E3" : "var(--tp-step-inactive)",
                     }}
                   />
                 ))}
@@ -408,7 +408,7 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                   backdropFilter: "blur(20px)",
                 }}
               >
-                <p className="text-[9px] font-bold uppercase tracking-[0.12em] mb-1" style={{ color: "#2563EB" }}>
+                <p className="text-[9px] font-bold uppercase tracking-[0.12em] mb-1" style={{ color: "#0071E3" }}>
                   {step.title}
                 </p>
                 <p className="text-sm leading-relaxed mb-3" style={{ color: "var(--tp-msg-subtitle)" }}>
@@ -427,8 +427,8 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                     onClick={nextStep}
                     className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-white font-bold text-sm"
                     style={{
-                      background: "linear-gradient(135deg, #2563EB, #1D4ED8)",
-                      boxShadow: "0 0 18px rgba(37,99,235,0.4)",
+                      background: "linear-gradient(135deg, #0071E3, #005BB5)",
+                      boxShadow: "0 0 18px rgba(0,113,227,0.4)",
                     }}
                   >
                     {step.cta}
@@ -520,7 +520,7 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                     >
                       <div
                         className="w-9 h-9 rounded-full flex items-center justify-center"
-                        style={{ background: "#2563EB", boxShadow: "0 0 20px rgba(37,99,235,0.8)" }}
+                        style={{ background: "#0071E3", boxShadow: "0 0 20px rgba(0,113,227,0.8)" }}
                       >
                         <Bell className="notif-bell w-4.5 h-4.5 text-white" />
                       </div>
@@ -528,7 +528,7 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                         animate={{ scale: [1, 1.8, 1], opacity: [0.5, 0, 0.5] }}
                         transition={{ duration: 1.3, repeat: 4 }}
                         className="absolute inset-0 rounded-full"
-                        style={{ background: "rgba(37,99,235,0.45)" }}
+                        style={{ background: "rgba(0,113,227,0.45)" }}
                       />
                     </motion.div>
                   )}
@@ -544,7 +544,7 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                         {[0, 1, 2].map(i => (
                           <motion.div
                             key={i}
-                            className="w-2 h-2 rounded-full bg-blue-500"
+                            className="w-2 h-2 rounded-full bg-[var(--tp-accent)]"
                             animate={{ opacity: [0.3, 1, 0.3], y: [0, -5, 0] }}
                             transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.18 }}
                           />
@@ -601,8 +601,8 @@ export function TepoOnboarding({ cartItemCount, onNavigate, onComplete, show = f
                       onClick={() => handleFinale("explore")}
                       className="w-full py-4 rounded-2xl text-white font-bold text-base flex items-center justify-center"
                       style={{
-                        background: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)",
-                        boxShadow: "0 0 24px rgba(37,99,235,0.38)",
+                        background: "linear-gradient(135deg, #0071E3 0%, #005BB5 100%)",
+                        boxShadow: "0 0 24px rgba(0,113,227,0.38)",
                       }}
                     >
                       {cartItemCount > 0 ? "Seguir explorando" : "Explorar el menú"}

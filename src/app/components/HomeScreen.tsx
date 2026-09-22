@@ -163,7 +163,7 @@ export function HomeScreen({ onStartOrder, onStartTutorial }: HomeScreenProps) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -8, scale: 0.96 }}
               transition={{ type: "spring", stiffness: 120, damping: 18 }}
-              className="w-full mb-6 rounded-2xl overflow-hidden relative"
+              className="w-full mb-6 rounded-3xl overflow-hidden relative"
               style={{
                 background: "var(--tp-card)",
                 border: "1px solid var(--tp-accent-border)",
@@ -202,7 +202,7 @@ export function HomeScreen({ onStartOrder, onStartTutorial }: HomeScreenProps) {
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
             onClick={handleButtonClick}
-            className="w-full relative py-5 px-8 rounded-2xl text-white font-semibold text-lg flex items-center justify-center gap-3 overflow-hidden transition-all duration-300 glow-blue"
+            className="w-full relative py-5 px-8 rounded-full text-white font-semibold text-lg flex items-center justify-center gap-3 overflow-hidden transition-all duration-300 glow-blue"
             style={{ background: "var(--tp-btn)" }}
           >
             <ShoppingBag className="w-5 h-5 relative z-10 flex-shrink-0" />
@@ -214,7 +214,7 @@ export function HomeScreen({ onStartOrder, onStartTutorial }: HomeScreenProps) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
             onClick={onStartTutorial}
-            className="w-full py-4 px-8 rounded-2xl font-semibold text-base flex items-center justify-center gap-2.5 transition-all"
+            className="w-full py-4 px-8 rounded-3xl font-semibold text-base flex items-center justify-center gap-2.5 transition-all"
             style={{
               background: "var(--tp-card)",
               border: "1px solid var(--tp-accent-border)",
@@ -233,7 +233,7 @@ export function HomeScreen({ onStartOrder, onStartTutorial }: HomeScreenProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.97 }}
               onClick={handleInstall}
-              className="w-full py-3.5 px-8 rounded-2xl font-semibold text-sm flex items-center justify-center gap-2.5 transition-all"
+              className="w-full py-3.5 px-8 rounded-3xl font-semibold text-sm flex items-center justify-center gap-2.5 transition-all"
               style={{
                 background: "var(--tp-card)",
                 border: "1px solid var(--tp-border)",
@@ -263,7 +263,7 @@ export function HomeScreen({ onStartOrder, onStartTutorial }: HomeScreenProps) {
               animate={{ y: 0, opacity: 1 }}
               transition={{ type: "spring", stiffness: 280, damping: 28 }}
               onClick={e => e.stopPropagation()}
-              className="w-full max-w-sm rounded-2xl overflow-hidden mb-6"
+              className="w-full max-w-sm rounded-3xl overflow-hidden mb-6"
               style={{ background: "var(--tp-card)", border: "1px solid var(--tp-border)" }}
             >
               <div className="px-5 pt-5 pb-3">

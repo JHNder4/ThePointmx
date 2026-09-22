@@ -12,7 +12,7 @@ import {
   getBanner, DEFAULT_BANNER,
 } from "./store";
 import { Order, AdminProduct, BannerSettings } from "./types";
-import { supabase } from "../../lib/supabase";
+import { supabase, supabaseConfigured } from "../../lib/supabase";
 import { OrderNotifications, NotificationItem } from "./components/OrderNotification";
 import { playOrderNotificationSound } from "./utils/sound";
 
@@ -76,7 +76,7 @@ export default function AdminShell() {
 
   // Supabase Realtime — listen for new orders
   useEffect(() => {
-    if (!loggedIn) return;
+    if (!loggedIn || !supabaseConfigured) return;
 
     const channel = supabase
       .channel("admin-new-orders")

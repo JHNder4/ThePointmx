@@ -42,12 +42,16 @@ function rowToOrder(row: Record<string, unknown>): Order {
 }
 
 export async function getOrders(): Promise<Order[]> {
-  const { data, error } = await supabase
-    .from("orders")
-    .select("*")
-    .order("created_at", { ascending: false });
-  if (error) throw error;
-  return (data ?? []).map(rowToOrder);
+  try {
+    const { data, error } = await supabase
+      .from("orders")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (error) return [];
+    return (data ?? []).map(rowToOrder);
+  } catch {
+    return [];
+  }
 }
 
 export async function getOrderById(id: string): Promise<Order | null> {
@@ -90,10 +94,14 @@ export async function updateOrderEta(id: string, estimatedTime: string): Promise
 }
 
 export async function getAdminProducts(): Promise<AdminProduct[]> {
-  const { data, error } = await supabase
-    .from("products")
-    .select("*");
-  if (error || !data || data.length === 0) return DEFAULT_ADMIN_PRODUCTS;
+  let data: Record<string, unknown>[] | null = null;
+  try {
+    const result = await supabase.from("products").select("*");
+    data = result.data as Record<string, unknown>[] | null;
+    if (result.error || !data || data.length === 0) return DEFAULT_ADMIN_PRODUCTS;
+  } catch {
+    return DEFAULT_ADMIN_PRODUCTS;
+  }
 
   // Build a lookup map so we can fall back to defaults for missing columns
   const defaultMap = Object.fromEntries(DEFAULT_ADMIN_PRODUCTS.map(p => [p.id, p]));
@@ -179,22 +187,26 @@ export const DEFAULT_BANNER: BannerSettings = {
 };
 
 export async function getBanner(): Promise<BannerSettings> {
-  const { data, error } = await supabase
-    .from("banner_settings")
-    .select("*")
-    .eq("id", 1)
-    .single();
-  if (error || !data) return DEFAULT_BANNER;
-  return {
-    id: 1,
-    badgeText: (data.badge_text as string) || DEFAULT_BANNER.badgeText,
-    title: (data.title as string) || "",
-    subtitle: (data.subtitle as string) || "",
-    buttonText: (data.button_text as string) || DEFAULT_BANNER.buttonText,
-    buttonLink: (data.button_link as string) || "",
-    imageUrl: (data.image_url as string) || "",
-    isActive: (data.is_active as boolean) ?? false,
-  };
+  try {
+    const { data, error } = await supabase
+      .from("banner_settings")
+      .select("*")
+      .eq("id", 1)
+      .single();
+    if (error || !data) return DEFAULT_BANNER;
+    return {
+      id: 1,
+      badgeText: (data.badge_text as string) || DEFAULT_BANNER.badgeText,
+      title: (data.title as string) || "",
+      subtitle: (data.subtitle as string) || "",
+      buttonText: (data.button_text as string) || DEFAULT_BANNER.buttonText,
+      buttonLink: (data.button_link as string) || "",
+      imageUrl: (data.image_url as string) || "",
+      isActive: (data.is_active as boolean) ?? false,
+    };
+  } catch {
+    return DEFAULT_BANNER;
+  }
 }
 
 export async function saveBanner(banner: BannerSettings): Promise<void> {
